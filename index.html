@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrypticFlex - Welcome</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Georgia:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Combined "Welcome" Page Styles */
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        header, footer {
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            padding: 25px;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        footer {
+            margin-top: 40px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ccc;
+        }
+
+        main {
+            padding: 20px;
+            min-height: calc(100vh - 140px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .hero-section {
+            background-image: url('hero-image.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 20px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            width: 95%;
+            max-width: 1100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-heading {
+            font-size: 4em;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-text {
+            font-size: 1.3em;
+            font-family: 'Georgia', serif;
+            line-height: 1.8em;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            color: rgba(150, 19, 19, 0.9);
+        }
+
+        .shop-now-button {
+            background-color: rgba(150, 19, 19, 0.9);
+            color: white;
+            padding: 18px 35px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            font-family: 'Lexend', sans-serif;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .shop-now-button:hover {
+            background-color: rgba(150, 19, 19, 1);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .shop-now-button:active {
+            background-color: rgba(120, 15, 15, 1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transform: translateY(0);
+        }
+
+        .category-section {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+            width: 95%;
+            max-width: 1100px;
+        }
+
+        .category-card {
+            background-color: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            width: calc(30% - 40px);
+            min-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .category-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card img:hover {
+            transform: scale(1.05);
+        }
+
+        .category-card h2 {
+            font-size: 2em;
+            color: #333;
+            font-family: 'Lexend', sans-serif;
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(220, 181, 11, 0.98);
+        }
+
+        .category-card p {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.7em;
+            margin-bottom: 25px;
+        }
+
+        .category-link {
+            display: inline-block;
+            background-color: rgba(150, 19, 19, 0.9);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-family: 'Lexend', sans-serif;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category-link:hover {
+            background-color: rgba(150, 19, 19, 1);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-link:active {
+            background-color: rgba(120, 15, 15, 1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transform: translateY(0);
+        }
+
+        /* Golden Glow Effect */
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                rgba(255, 255, 0, 0.1),
+                rgba(255, 200, 0, 0.3),
+                rgba(255, 255, 0, 0.1)
+            );
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+            border-radius: 16px;
+        }
+
+        .category-card:hover::before {
+            opacity: 1;
+            animation: glow 2s infinite;
+        }
+
+        @keyframes glow {
+            0% { opacity: 0.1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 0.1; }
+        }
+
+        #about-us, #contact-us {
+            margin-top: 60px;
+            padding: 30px;
+            background-color: #f8f8f8;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            width: 95%;
+            max-width: 1100px;
+            text-align: left;
+        }
+
+        #about-us h2, #contact-us h2 {
+            font-size: 2.5em;
+            color: rgba(150, 19, 19, 0.9);
+            font-family: 'Lexend', sans-serif;
+            margin-bottom: 25px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            text-align: center;
+        }
+
+        #about-us p, #contact-us p {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.8em;
+        }
+
+        #contact-us p {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .category-section {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+
+            .category-card {
+                width: 90%;
+                min-width: auto;
+                padding: 30px;
+            }
+
+            .hero-section {
+                padding: 120px 20px;
+            }
+
+            .hero-heading {
+                font-size: 3.5em;
+            }
+
+            .hero-text {
+                font-size: 1.2em;
+            }
+
+            .category-card img {
+                height: 200px;
+            }
+
+            #about-us, #contact-us {
+                padding: 20px;
+            }
+
+            #about-us h2, #contact-us h2 {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 100px 15px;
+            }
+
+            .hero-heading {
+                font-size: 3em;
+            }
+
+            .hero-text {
+                font-size: 1.1em;
+            }
+
+            .shop-now-button {
+                font-size: 1em;
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+   <header>
+    <nav>
+         <h1 style="text-shadow: 0 0 8px rgba(220, 181, 11, 0.98);">CrypticFlex</h1>
+        <a href="profile.html">💻profile</a> <class="product-grid">
+       <a href="contactus.html">📞contact us</a>   <class="product-grid">
+        <a href="wishlist.html">🖤wishlist</a> <class="product-grid">
+        <a href="cart.html">🛒Cart</a>   <class="product-grid">
+        </nav>
+    </header>
+    <main>
+        <div class="hero-section">
+            <h1 class="hero-heading">Welcome to CrypticFlex</h1>
+            <p class="hero-text">Elevate your style with our exclusive collections.</p>
+            <a href="shop.html" class="shop-now-button">Shop Now</a> 
+
+        <section id="about-us" class="about-us-section">
+            <h2>About Us</h2>
+            <p>Welcome to our store! We are dedicated to providing high-quality products and exceptional customer service. Our mission is to offer a diverse selection of goods that meet your needs and exceed your expectations. We believe in building lasting relationships with our customers through trust and commitment.</p>
+        </section>
+
+        <section id="contact-us" class="contact-us-section">
+            <h2>Contact Us</h2>
+            <p>We're here to help! If you have any questions, concerns, or feedback, please don't hesitate to reach out. You can contact us via email at info@yourstore.com, by phone at +1 555-123-4567, or visit our physical location at 123 Main St, Anytown, USA. We strive to respond to all inquiries within 24 hours. Your satisfaction is our priority.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 crypticflex. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

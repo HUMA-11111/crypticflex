@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrypticFlex - Order Confirmation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Georgia:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Order Confirmation Page Styles */
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        header, footer {
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            padding: 25px;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        footer {
+            margin-top: 40px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ccc;
+        }
+
+        main {
+            padding: 20px;
+            min-height: calc(100vh - 140px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .confirmation-container {
+            width: 95%;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .confirmation-heading {
+            font-size: 2.5em;
+            color: rgba(150, 19, 19, 0.9);
+            font-family: 'Lexend', sans-serif;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .confirmation-text {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8em;
+            margin-bottom: 30px;
+        }
+
+        .order-details {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .order-details h3 {
+            font-size: 1.5em;
+            color: #444;
+            margin-bottom: 15px;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .order-details p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .continue-shopping-button {
+            background-color: rgba(150, 19, 19, 0.9);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            font-family: 'Lexend', sans-serif;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .continue-shopping-button:hover {
+            background-color: rgba(150, 19, 19, 1);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .continue-shopping-button:active {
+            background-color: rgba(120, 15, 15, 1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .confirmation-container {
+                padding: 30px;
+            }
+
+            .confirmation-heading {
+                font-size: 2em;
+            }
+
+            .confirmation-text {
+                font-size: 1.1em;
+            }
+
+            .order-details {
+                padding: 15px;
+            }
+
+            .order-details h3 {
+                font-size: 1.3em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .confirmation-container {
+                padding: 20px;
+            }
+
+            .confirmation-heading {
+                font-size: 1.75em;
+            }
+
+            .confirmation-text {
+                font-size: 1em;
+            }
+
+            .continue-shopping-button {
+                font-size: 1.1em;
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/home.html">Home</a>
+            <a href="/shop">Shop</a>
+        </nav>
+    </header>
+    <main>
+        <div class="confirmation-container">
+            <h1 class="confirmation-heading">Thank You for Your Order!</h1>
+            <p class="confirmation-text">Your order has been confirmed and will be processed shortly.  You will receive a shipping confirmation email with tracking information once your order has been shipped.</p>
+            <div class="order-details">
+                <h3>Order Details</h3>
+                <p><strong>Order Number:</strong> 1234567890</p>
+                <p><strong>Shipping Address:</strong> 123 Main St, Anytown, USA</p>
+                <p><strong>Total:</strong> $179.98</p>
+                <p><strong>Payment Method:</strong> Credit Card</p>
+            </div>
+            <a href="/shop" class="continue-shopping-button">Continue Shopping</a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 CrypticFlex. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

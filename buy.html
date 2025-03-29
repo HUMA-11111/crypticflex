@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrypticFlex - Product Detail</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Georgia:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Buy Page Styles */
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+        }
+
+        header, footer {
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            padding: 25px;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        footer{
+            margin-top: 40px;
+        }
+
+        nav a{
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+        }
+
+        nav a:hover{
+            color: #ccc;
+        }
+
+        main {
+            padding: 20px;
+            min-height: calc(100vh - 140px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-detail-container {
+            background-color: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            max-width: 900px;
+            width: 95%;
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .product-detail-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .product-detail-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-detail-image:hover {
+            transform: scale(1.05);
+        }
+
+        .product-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-details h1 {
+            font-size: 3em;
+            color: rgba(150, 19, 19, 0.9);
+            font-family: 'Lexend', sans-serif;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .product-details p {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .product-details .price {
+            font-size: 2.5em;
+            color: rgba(150, 19, 19, 1);
+            font-weight: 700;
+            margin-bottom: 35px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            align-self: flex-start;
+        }
+
+        .add-to-cart-btn, .add-to-wishlist-btn, .buy-now-btn {
+            padding: 18px 35px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            font-family: 'Lexend', sans-serif;
+            width: fit-content;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .add-to-cart-btn {
+            background-color: rgba(150, 19, 19, 0.9);
+            color: white;
+        }
+
+        .add-to-wishlist-btn {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .buy-now-btn {
+            background-color: #8f1212;  /* Orange */
+            color: white;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: rgba(150, 19, 19, 1);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .add-to-wishlist-btn:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .buy-now-btn:hover {
+            background-color: #831919;  /* Darker orange */
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .add-to-cart-btn:active, .add-to-wishlist-btn:active, .buy-now-btn:active {
+            background-color: rgba(120, 15, 15, 1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transform: translateY(0);
+        }
+
+        .recommendation-container {
+            width: 95%;
+            max-width: 900px;
+            margin-top: 50px;
+        }
+
+        .recommendation-heading{
+            font-size: 1.8em;
+            color: #333;
+            font-family: 'Lexend', sans-serif;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .recommendation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            padding: 0;
+        }
+
+        .recommendation-item {
+            background-color: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            font-family: 'Lexend', sans-serif;
+            border: 1px solid #ddd;
+        }
+
+        .recommendation-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .recommendation-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .recommendation-item img:hover {
+            transform: scale(1.03);
+        }
+
+        .recommendation-item h3 {
+            font-size: 1.4em;
+            margin-bottom: 12px;
+            color: #444;
+            font-weight: 600;
+        }
+
+        .recommendation-item p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .product-detail-container {
+                flex-direction: column;
+            }
+            .product-detail-image-container{
+                width: 100%;
+            }
+            .product-details {
+                width: 100%;
+            }
+            .recommendation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="text-shadow: 0 0 8px rgba(220, 181, 11, 0.98);">CrypticFlex</h1>
+        <p> 💸buy now!</p>
+        <nav>
+            <a href="home.html">🏡Home</a> <class="product-grid">
+            <a href="wishlist.html">🖤wishlist</a> <class="product-grid">
+            <a href="shop.html">💎Shop</a> <class="product-grid">
+       
+        </nav>
+    </header>
+    <main>
+        <div class="product-detail-container">
+            <div class="product-detail-image-container">
+                <img src="https://placehold.co/450x450/EEE/31343C?text=Product+Image" alt="Product Image" class="product-detail-image">
+            </div>
+            <div class="product-details">
+                <h1>Product Name</h1>
+                <p>Product Description.  Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <p class="price">$99.99</p>
+                <div class="button-container">
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                    <button class="add-to-wishlist-btn">Add to Wishlist <a href="wishlist.html"></a> <class="product-grid"> </button>
+                    <button class="buy-now-btn">Buy Now</button> <class="product-grid"></class>
+                </div>
+            </div>
+        </div>
+        <div class="recommendation-container">
+            <h2 class="recommendation-heading">You might also like</h2>
+            <div class="recommendation-grid">
+                 <div class="recommendation-item">
+                    <h3>Product 3</h3>
+                    <img src="https://placehold.co/280x280/EEE/31343C?text=Product+3" alt="Product 3">
+                    <p>Description of Product 3</p>
+                </div>
+                <div class="recommendation-item">
+                    <h3>Product 4</h3>
+                    <img src="https://placehold.co/280x280/EEE/31343C?text=Product+4" alt="Product 4">
+                    <p>Description of Product 4</p>
+                </div>
+                 <div class="recommendation-item">
+                    <h3>Product 5</h3>
+                    <img src="https://placehold.co/280x280/EEE/31343C?text=Product+5" alt="Product 5">
+                    <p>Description of Product 5</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 crypticflex. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

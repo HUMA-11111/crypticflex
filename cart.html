@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crypticflex - Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Georgia:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Cart Page Styles */
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+        }
+
+        header, footer {
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            padding: 25px;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        footer {
+            margin-top: 40px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            color: #ccc;
+        }
+
+        main {
+            padding: 20px;
+            min-height: calc(100vh - 140px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cart-container {
+            background-color: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            max-width: 900px;
+            width: 95%;
+            margin-bottom: 30px;
+        }
+
+        .cart-heading {
+            font-size: 3em;
+            color: rgba(150, 19, 19, 0.9);
+            font-family: 'Lexend', sans-serif;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .cart-items {
+            margin-bottom: 40px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 25px;
+            transition: background-color 0.3s ease;
+            border-radius: 12px;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .cart-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .product-info {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .product-info img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-info img:hover {
+            transform: scale(1.03);
+        }
+
+        .product-details {
+            flex: 1;
+        }
+
+        .product-details h3 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 12px;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .product-details p {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .quantity-controls button {
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 18px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-family: 'Lexend', sans-serif;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .quantity-controls button:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        .quantity-controls button:active {
+            background-color: #ccc;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            transform: translateY(0);
+        }
+
+        .quantity-display {
+            font-size: 1.4em;
+            color: #222;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 600;
+            min-width: 2em;
+            text-align: center;
+        }
+
+        .price {
+            font-size: 1.8em;
+            color: rgba(150, 19, 19, 1);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .remove-item-btn {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: #888;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .remove-item-btn:hover {
+            color: #ff4d4d;
+        }
+
+        .total-price {
+            font-size: 2.5em;
+            color: rgba(150, 19, 19, 1);
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'Lexend', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .checkout-button {
+            background-color: rgba(150, 19, 19, 0.9);
+            color: white;
+            padding: 18px 35px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            font-family: 'Lexend', sans-serif;
+            width: fit-content;
+            align-self: center;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkout-button:hover {
+            background-color: rgba(150, 19, 19, 1);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .checkout-button:active {
+            background-color: rgba(120, 15, 15, 1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .cart-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .product-info {
+                flex-direction: column;
+            }
+
+            .product-info img {
+                max-width: 100%;
+            }
+
+            .quantity-controls {
+                flex-direction: row;
+                justify-content: center;
+                gap: 15px;
+            }
+             .price{
+                align-self: center;
+             }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="text-shadow: 0 0 8px rgba(220, 181, 11, 0.98);">CrypticFlex</h1>
+       <p>🛒cart</p>
+        <nav>
+            <a href="home.html">🏡Home</a> <class="product-grid">
+            <a href="shop.html">💎Shop</a> <class="product-grid">
+            <a href="order confirmation.html"> 📦orders</a> <class="product-grid">
+        </nav>
+    </header>
+    <main>
+        <div class="cart-container">
+            <h1 class="cart-heading">Shopping Cart</h1>
+            <div class="cart-items">
+                <div class="cart-item">
+                    <div class="product-info">
+                        <img src="https://placehold.co/150x150/EEE/31343C?text=Product+1" alt="Product 1">
+                        <div class="product-details">
+                            <h3>Product Name 1</h3>
+                            <p>Description of Product 1</p>
+                        </div>
+                    </div>
+                    <div class="quantity-controls">
+                        <button>-</button>
+                        <span class="quantity-display">1</span>
+                        <button>+</button>
+                    </div>
+                    <p class="price">$99.99</p>
+                    <button class="remove-item-btn">×</button>
+                </div>
+                <div class="cart-item">
+                    <div class="product-info">
+                        <img src="https://placehold.co/150x150/EEE/31343C?text=Product+2" alt="Product 2">
+                        <div class="product-details">
+                            <h3>Product Name 2</h3>
+                            <p>Description of Product 2</p>
+                        </div>
+                    </div>
+                    <div class="quantity-controls">
+                        <button>-</button>
+                        <span class="quantity-display">2</span>
+                        <button>+</button>
+                    </div>
+                    <p class="price">$79.99</p>
+                    <button class="remove-item-btn">×</button>
+                </div>
+            </div>
+            <p class="total-price">Total: $179.98</p>
+            <button class="checkout-button">Proceed to Checkout</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 crypticflex. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

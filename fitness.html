@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Crypticfelx - fitness</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&family=Georgia:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      /* General Category Page Styles */
+      body {
+          font-family: 'Georgia', serif;
+          margin: 0;
+          padding: 0;
+          background-color: #fafafa;
+      }
+
+      header, footer {
+          background-color: rgb(0, 0, 0);
+          color: rgb(255, 255, 255);
+          padding: 25px;
+          text-align: center;
+      }
+
+      header {
+        margin-bottom: 40px;
+      }
+
+      footer{
+        margin-top: 40px;
+      }
+
+      nav a{
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1.1em;
+      }
+
+      nav a:hover{
+        color: #ccc;
+      }
+
+      main {
+          padding: 20px;
+          min-height: calc(100vh - 140px); /* Ensure main content takes up full height */
+      }
+
+      .category-header {
+          text-align: center;
+          margin-bottom: 30px;
+      }
+
+      .category-header h1 {
+          font-size: 2.5em;
+          color: rgba(150, 19, 19, 0.9);
+          font-family: 'Lexend', sans-serif;
+          font-weight: 600;
+          margin-bottom: 10px;
+      }
+
+      .category-header p {
+          font-size: 1.1em;
+          color: #666;
+      }
+
+      .product-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted product card width */
+          gap: 30px;
+          padding: 0;
+      }
+
+      .product-item {
+          background-color: #fff;
+          border-radius: 12px;
+          padding: 20px;
+          text-align: center;
+          text-decoration: none;
+          color: #333;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          font-family: 'Lexend', sans-serif;
+          border: 1px solid #ddd;
+      }
+
+      .product-item:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .product-item img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 8px;
+          margin-bottom: 15px;
+          transition: transform 0.2s ease;
+      }
+
+      .product-item img:hover {
+        transform: scale(1.03);
+      }
+
+      .product-item h3 {
+          font-size: 1.5em;
+          margin-bottom: 10px;
+          color: #444;
+          font-weight: 600;
+      }
+
+      .product-item p {
+          font-size: 1.1em;
+          color: #777;
+          margin-bottom: 10px;
+      }
+
+      .product-item .price {
+          font-size: 1.4em;
+          color: rgba(150, 19, 19, 1);
+          font-weight: 700;
+          margin-bottom: 15px;
+      }
+
+      .add-to-cart-btn {
+          background-color: rgba(150, 19, 19, 0.9);
+          color: white;
+          padding: 12px 25px;
+          border: none;
+          border-radius: 8px;
+          font-size: 1.1em;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+          font-family: 'Lexend', sans-serif;
+          width: 100%;
+      }
+
+      .add-to-cart-btn:hover {
+          background-color: rgba(150, 19, 19, 1);
+      }
+
+      .add-to-cart-btn:active{
+        background-color: rgba(120, 15, 15, 1);
+      }
+
+      @media (max-width: 768px) {
+        .product-grid {
+            grid-template-columns: 1fr; /* Stack products on small screens */
+        }
+        .category-header h1{
+            font-size: 2em;
+        }
+        .category-header p{
+            font-size: 1em;
+        }
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="text-shadow: 0 0 8px rgba(220, 181, 11, 0.98);">CrypticFlex</h1>
+       <p>💪🏻elevite like beast with our royal fitness gears, get your's now!</p>
+        <nav>
+            <a href="home.html">🏡Home</a> <class="product-grid">
+            <a href="wishlist.html">🖤wishlist</a>  <class="product-grid">
+                <a href="cart.html">🛒Cart</a>   <class="product-grid">
+            <a href="shop.html">💎Shop</a> <class="product-grid">
+        </nav>
+    </header>
+    <main>
+        <section class="buy.html"> </a> 
+            <h1> ✨fitness</h1>
+            <p>Explore our wide selection of fitness products.</p>
+        </section>
+        <section id="fitness">
+        <section class="product-grid">
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Crypticfelx. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
